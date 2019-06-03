@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.c                                           :+:      :+:    :+:   */
+/*   figure.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/29 21:36:54 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/03 15:37:55 by vinograd         ###   ########.fr       */
+/*   Created: 2019/06/03 15:54:35 by vinograd          #+#    #+#             */
+/*   Updated: 2019/06/03 15:54:36 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//exit, open, close, write, read, malloc and free.
-#include "../libft/libft.h"
 #include "fillit.h"
 
-int main()
+static void	figure_reader(int j, char arr[4][4], char *str, char num)
 {
-	//t_figure head;
-	int		fd;
-	char	*line;
+	int i;
 
-	fd = open("test.fillit", O_RDONLY);
-	while(get_next_line(fd, &line))
+	i = 0;
+	while (i < 4)
 	{
-		ft_putendl(line);
-		ft_strdel(&line);
+		if (ft_strchr(str, '#'))
+			arr[j][i] = num;
 	}
-	close(fd);
 }

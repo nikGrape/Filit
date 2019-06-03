@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   fillit.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/31 15:23:09 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/03 15:53:24 by vinograd         ###   ########.fr       */
+/*   Created: 2019/05/29 21:36:54 by vinograd          #+#    #+#             */
+/*   Updated: 2019/06/03 15:55:00 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+//exit, open, close, write, read, malloc and free.
+#include "fillit.h"
 
-#include "../libft/libft.h"
-
-typedef struct s_figure
+int main()
 {
-    int num;
-    int cost;
-    int figure[4][4];
-    struct s_figure *next;
-} t_figure;
+	t_figure head;
+	int		fd;
+	char	*line;
 
-void    fillit(char *str);
-void    ft_swap(char *c1, char *c2);
-int     move_left(char *str);
-
-#endif
+	fd = open("test.fillit", O_RDONLY);
+	while(get_next_line(fd, &line))
+	{
+		ft_putendl(line);
+		ft_strdel(&line);
+	}
+	close(fd);
+}
