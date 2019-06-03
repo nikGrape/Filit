@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filit.c                                            :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vinograd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/29 21:36:54 by vinograd          #+#    #+#             */
-/*   Updated: 2019/05/29 22:19:35 by vinograd         ###   ########.fr       */
+/*   Created: 2019/05/06 11:19:02 by vinograd          #+#    #+#             */
+/*   Updated: 2019/05/06 20:16:10 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//exit, open, close, write, read, malloc and free.
-#include "libft/libft.h"
+#include <stdlib.h>
 
-int main()
+void	ft_memdel(void **ap)
 {
-	int fd;
-	char *line;
-
-	fd = open("test.fillit", O_RDONLY);
-	while(get_next_line(fd, &line))
+	if (ap != NULL)
 	{
-		ft_putendl(line);
-		ft_strdel(&line);
+		free(*ap);
+		*ap = NULL;
 	}
-	close(fd);
 }
