@@ -6,17 +6,17 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 21:36:54 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/03 15:28:46 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/03 15:37:55 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //exit, open, close, write, read, malloc and free.
-#include "libft/libft.h"
+#include "../libft/libft.h"
 #include "fillit.h"
 
 int main()
 {
-	t_figure head;
+	//t_figure head;
 	int		fd;
 	char	*line;
 

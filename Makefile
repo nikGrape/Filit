@@ -6,7 +6,7 @@
 #    By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/29 21:12:56 by vinograd          #+#    #+#              #
-#    Updated: 2019/05/31 14:41:45 by vinograd         ###   ########.fr        #
+#    Updated: 2019/06/03 15:35:11 by vinograd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ OBJECTS=*.o
 INCLUDES=./
 
 all:
-	gcc -Werror -Wextra -Wall fillit.c libft/libft.a -I libft/libft.h
+	gcc -Werror -Wextra -Wall fillit/fillit.c libft/libft.a -I libft/libft.h fillit/fillit.h
 
 clean:
 	/bin/rm -f *.o
