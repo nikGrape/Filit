@@ -6,7 +6,7 @@
 /*   By: nikgrape <nikgrape@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 21:36:54 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/10 01:30:54 by nikgrape         ###   ########.fr       */
+/*   Updated: 2019/06/10 01:38:04 by nikgrape         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 	close(fd);
 	size = ft_size(head);
 	board = get_board(size);
-	move_top(head);
+	move_top(head); // need to correct???
 	
 }
 
