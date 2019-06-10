@@ -6,7 +6,7 @@
 /*   By: nikgrape <nikgrape@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/09 22:41:40 by nikgrape          #+#    #+#             */
-/*   Updated: 2019/06/10 00:30:13 by nikgrape         ###   ########.fr       */
+/*   Updated: 2019/06/10 01:33:31 by nikgrape         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,12 @@ static void    move_up(char f[4][5])
     }
 }
 
-//void    move_top(t_figure *start)
+// void    move_top(t_figure *start, int size)
+// {
+//     move_top(start);
+//     move_left(start);
+// }
+
 int main()// compile with swap.c
 {
     int i;
