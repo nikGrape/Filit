@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   figure.c                                           :+:      :+:    :+:   */
+/*   figure_reader.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nikgrape <nikgrape@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 15:54:35 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/03 15:54:36 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/10 00:38:44 by nikgrape         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static void	figure_reader(int j, char arr[4][4], char *str, char num)
+t_figure	*figure_reader(int fd)
 {
-	int i;
-
-	i = 0;
-	while (i < 4)
+	t_figure *start;
+	char	*line;
+	int		index;
+	int		num;
+	
+	start = new_figure('A');
+	index = 0;
+	num = 1;
+	while (get_next_line(fd, &line))
 	{
-		if (ft_strchr(str, '#'))
-			arr[j][i] = num;
+		if (index == 4)
+		{
+			start->next = new_figure('A' + num);
+			start = start->next;
+			index = 0;
+			num++;
+			continue ;
+		}
+		(start->figure)[index] = line;
+		index++;
 	}
 }

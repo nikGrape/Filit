@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nikgrape <nikgrape@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 15:23:09 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/03 15:53:24 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/10 00:38:14 by nikgrape         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 # define FILLIT_H
 
 #include "../libft/libft.h"
+#include <stdio.h>
 
-typedef struct s_figure
+typedef struct  s_figure
 {
-    int num;
-    int cost;
-    int figure[4][4];
+    char num;
+    char **figure;
     struct s_figure *next;
-} t_figure;
+}               t_figure;
 
-void    fillit(char *str);
-void    ft_swap(char *c1, char *c2);
-int     move_left(char *str);
+void            ft_swap(char *c1, char *c2);
+t_figure        *new_figure(char num);
+void            move_top(t_figure *start);
+t_figure        *figure_reader(int fd);
 
 #endif
