@@ -6,13 +6,13 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/09 22:41:40 by nikgrape          #+#    #+#             */
-/*   Updated: 2019/06/10 20:16:00 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/11 15:13:41 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static void	move_left(char **f)
+void	move_left(char **f, int size)
 {
 	unsigned int i;
 	unsigned int j;
@@ -21,11 +21,11 @@ static void	move_left(char **f)
 
 	top = 0;
 	i = 0;
-	while (i < 4)
+	while (i < size)
 	{
 		j = 0;
 		flag = 0;
-		while (j < 4)
+		while (j < size)
 		{
 			if (f[j][i] == '#')
 			{
@@ -40,7 +40,7 @@ static void	move_left(char **f)
 	}
 }
 
-static void	move_up(char **f)
+static void	move_up(char **f, int size)
 {
 	unsigned int	i;
 	unsigned int	j;
@@ -49,11 +49,11 @@ static void	move_up(char **f)
 
 	top = 0;
 	j = 0;
-	while (j < 4)
+	while (j < size)
 	{
 		i = 0;
 		flag = 0;
-		while (i < 4)
+		while (i < size)
 		{
 			if (f[j][i] == '#')
 			{
@@ -72,21 +72,8 @@ void		move_top(t_figure *start, int size)
 {
 	while (start != NULL)
 	{
-		move_up(start->figure);
-		move_left(start->figure);
+		move_up(start->figure, 4);
+		move_left(start->figure, 4);
 		start = start->next;
 	}
 }
-
-// int			main()// compile with swap.c
-// {
-// 	int i = 0;
-// 	char arr[4][5] =	{"....",
-//                          "..#.",
-//                          "..#.",
-//                          "..##"};
-// 	move_up(arr);
-// 	move_left(arr);
-// 	while (i < 4)
-// 		printf("%s\n", arr[i++]);
-// }

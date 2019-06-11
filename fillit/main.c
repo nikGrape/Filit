@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 21:36:54 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/10 23:28:18 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/11 15:07:29 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,19 @@
 void	print(t_figure *head, int size)
 {
 	int i;
+	char ch;
 
+	ch = 'A';
 	while (head != NULL)
 	{
 		i = 0;
 		while (i < size)
 		{
-			printf("%s\n", head->figure[i]);
+			printf("%c\t%s\n", ch, head->figure[i]);
 			i++;
 		}
 		printf("\n");
+		ch++;
 		head = head->next;
 	}
 }
@@ -46,6 +49,6 @@ int		main(int argc, char **argv)
 	printf("BOARD SIZE: %dx%d\n\n", size, size);
 	//board = get_board(size); // works
 	move_top(head, size);
-	//make_size(head, size); // does not work
-	print(head, 4);
+	refresh(head, size);
+	print(head, size);
 }
