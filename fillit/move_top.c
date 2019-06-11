@@ -3,87 +3,90 @@
 /*                                                        :::      ::::::::   */
 /*   move_top.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nikgrape <nikgrape@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/09 22:41:40 by nikgrape          #+#    #+#             */
-/*   Updated: 2019/06/10 01:33:31 by nikgrape         ###   ########.fr       */
+/*   Updated: 2019/06/10 20:16:00 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static void    move_left(char f[4][5])
+static void	move_left(char **f)
 {
-    unsigned int i;
-    unsigned int j;
-    unsigned int top;
-    unsigned int flag;
+	unsigned int i;
+	unsigned int j;
+	unsigned int top;
+	unsigned int flag;
 
-    top = 0;
-    i = 0;
-    while (i < 4)
-    {
-        j = 0;
-        flag = 0;
-        while (j < 4)
-        {
-            if (f[j][i] == '#')
-            {
-                ft_swap(&f[j][i], &f[j][top]);
-                flag++;
-            }
-            j++;
-        }
-        if (flag)
-            top++;
-        i++;
-    }
+	top = 0;
+	i = 0;
+	while (i < 4)
+	{
+		j = 0;
+		flag = 0;
+		while (j < 4)
+		{
+			if (f[j][i] == '#')
+			{
+				ft_swap(&f[j][i], &f[j][top]);
+				flag++;
+			}
+			j++;
+		}
+		if (flag)
+			top++;
+		i++;
+	}
 }
 
-static void    move_up(char f[4][5])
+static void	move_up(char **f)
 {
-    unsigned int i;
-    unsigned int j;
-    int top;
-    int flag;
+	unsigned int	i;
+	unsigned int	j;
+	int				top;
+	int				flag;
 
-    top = 0;
-    j = 0;
-    while (j < 4)
-    {
-        i = 0;
-        flag = 0;
-        while (i < 4)
-        {
-            if (f[j][i] == '#')
-            {
-                ft_swap(&f[j][i], &f[top][i]);
-                flag++;
-            }
-            i++;
-        }
-        if (flag)
-            top++;
-        j++;
-    }
+	top = 0;
+	j = 0;
+	while (j < 4)
+	{
+		i = 0;
+		flag = 0;
+		while (i < 4)
+		{
+			if (f[j][i] == '#')
+			{
+				ft_swap(&f[j][i], &f[top][i]);
+				flag++;
+			}
+			i++;
+		}
+		if (flag)
+			top++;
+		j++;
+	}
 }
 
-// void    move_top(t_figure *start, int size)
+void		move_top(t_figure *start, int size)
+{
+	while (start != NULL)
+	{
+		move_up(start->figure);
+		move_left(start->figure);
+		start = start->next;
+	}
+}
+
+// int			main()// compile with swap.c
 // {
-//     move_top(start);
-//     move_left(start);
+// 	int i = 0;
+// 	char arr[4][5] =	{"....",
+//                          "..#.",
+//                          "..#.",
+//                          "..##"};
+// 	move_up(arr);
+// 	move_left(arr);
+// 	while (i < 4)
+// 		printf("%s\n", arr[i++]);
 // }
-
-int main()// compile with swap.c
-{
-    int i;
-    int j;
-    char arr[4][5] =    {"....",
-                         "....",
-                         "..##",
-                         ".##."};
-    move_up(arr);
-    move_left(arr);
-    while (i < 4)
-        printf("%s\n", arr[i++]);
-}

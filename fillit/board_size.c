@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   size.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/17 17:23:37 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/04 17:54:47 by vinograd         ###   ########.fr       */
+/*   Created: 2019/06/10 19:10:58 by vinograd          #+#    #+#             */
+/*   Updated: 2019/06/10 19:21:04 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(const char *s)
-{
-	int sign;
-	int res;
-	int i;
+#include "fillit.h"
 
-	res = 0;
-	i = 0;
-	while ((s[i] > 8 && s[i] < 20) || s[i] == ' ')
-		i++;
-	sign = (s[i] == '-') ? -1 : 1;
-	if (s[i] == '+' || s[i] == '-')
-		i++;
-	while ((s[i] >= '0' && s[i] <= '9') && s[i] != '\0')
-		res = res * 10 + (s[i++] - '0');
-	return (res * sign);
+static int	ft_size(int size)
+{
+	int b_sz;
+
+	b_sz = 4;
+	size *= 4;
+	while (size > (b_sz * b_sz))
+		b_sz++;
+	return (b_sz);
+}
+
+int			board_size(t_figure *start)
+{
+	int count;
+
+	count = 0;
+	while (start != NULL)
+	{
+		start = start->next;
+		count++;
+	}
+	return (ft_size(count));
 }
