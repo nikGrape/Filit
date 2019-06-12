@@ -6,31 +6,28 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 21:36:54 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/11 18:52:46 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/11 19:33:18 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //exit, open, close, write, read, malloc and free.
 #include "fillit.h"
 
-void	print(t_figure *head, int size)
+void	print(t_figure *head)
 {
 	int		i;
 	int		j;
-	char	ch;
 
-	ch = 'A';
 	j = 0;
 	while (head)
 	{
 		i = 0;
-		while (i < size)
+		while (i < head->size)
 		{
-			printf("%c\t%s\n", ch, head->figure[i]);
+			printf("%c\t%s\n", head->name, head->figure[i]);
 			i++;
 		}
 		printf("\n");
-		ch++;
 		head = head->next;
 	}
 }
@@ -52,8 +49,8 @@ int		main(int argc, char **argv)
 	//print(head, 4);
 	//board = get_board(size); // works
 	move_top(head);
-	if (size > 4)
-		refresh(head, size);
+	// if (size > 4)
+	// 	refresh(head, size);
 	//size = 4;
-	print(head, size);
+	print(head, 4);
 }

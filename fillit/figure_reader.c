@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 15:54:35 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/11 14:04:48 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/11 19:28:58 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@ t_figure	*new_figure(int size)
 	t_figure	*new;
 	int			i;
 
-	if (!(new = (t_figure*)malloc(sizeof(t_figure*))))
+	if (!(new = (t_figure*)malloc(sizeof(t_figure))))
 		return (NULL);
 	new->next = NULL;
+	new->size = size;
 	new->figure = (char**)malloc(sizeof(char*) * size);
 	i = 0;
 	while (i < size)
@@ -36,7 +37,9 @@ t_figure	*figure_reader(int fd)
 	t_figure	*tmp;
 	char		*line;
 	int			index;
+	char		name;
 
+	name = 'A';
 	start = new_figure(4);
 	tmp = start;
 	index = 0;
@@ -44,14 +47,15 @@ t_figure	*figure_reader(int fd)
 	{
 		if (index == 4)
 		{
+			tmp->name = name++;
 			tmp->next = new_figure(4);
 			tmp = tmp->next;
 			index = 0;
 			continue ;
 		}
-		ft_strcpy(tmp->figure[index], line);
+		ft_strcpy(tmp->figure[index++], line);
 		ft_strdel(&line);
-		index++;
 	}
+	tmp->name = name;
 	return (start);
 }

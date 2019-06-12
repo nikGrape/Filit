@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 15:23:09 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/11 18:58:42 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/11 19:31:39 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 typedef struct	s_figure
 {
+	int				size;
+	char			name;
 	char			**figure;
 	struct s_figure *next;
 }				t_figure;
@@ -30,6 +32,6 @@ void			move_top(t_figure *start);
 void			move_left(char **f, int size);
 void			refresh(t_figure *start, int size);
 t_figure		*new_figure(int size);
-void			del_figure(t_figure *list, int size);
+void			del_figure(t_figure *list);
 
 #endif

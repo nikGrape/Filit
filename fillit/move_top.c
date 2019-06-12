@@ -6,13 +6,13 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/09 22:41:40 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/11 18:59:22 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/11 19:01:05 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	move_left(char **f, int size)
+void		move_left(char **f, int size)
 {
 	unsigned int i;
 	unsigned int j;
