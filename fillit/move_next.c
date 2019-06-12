@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_next.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbubnov <dbubnov@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nikgrape <nikgrape@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 14:40:33 by dbubnov           #+#    #+#             */
-/*   Updated: 2019/06/11 18:54:10 by dbubnov          ###   ########.fr       */
+/*   Updated: 2019/06/12 11:34:29 by nikgrape         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,17 +110,17 @@ static void	move_down(char **f, int size_field)
 		ft_swap(&f[j][i], &f[j + 1][i]);
 }
 
-int			move_next(t_figure *list, int size_field)
+int			move_next(t_figure *list)
 {
-	if (check_boarder_down(list->figure, size_field - 1)
-		&& check_boarder_right(list->figure, size_field - 1))
+	if (check_boarder_down(list->figure, list->size - 1)
+		&& check_boarder_right(list->figure, list->size - 1))
 		return (1);
-	if (check_boarder_right(list->figure, size_field - 1))
+	if (check_boarder_right(list->figure, list->size - 1))
 	{
-		move_left(list->figure, size_field);
-		move_down(list->figure, size_field - 1);
+		move_left(list->figure, list->size);
+		move_down(list->figure, list->size - 1);
 	}
 	else
-		move_right(list->figure, size_field - 1);
+		move_right(list->figure, list->size - 1);
 	return (0);
 }

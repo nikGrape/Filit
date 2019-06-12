@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nikgrape <nikgrape@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 21:36:54 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/11 19:49:00 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/12 12:35:25 by nikgrape         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //exit, open, close, write, read, malloc and free.
 #include "fillit.h"
 
-void	print(t_figure *head)
+void	print_all(t_figure *head)
 {
 	int		i;
 	int		j;
@@ -22,6 +22,7 @@ void	print(t_figure *head)
 	while (head)
 	{
 		i = 0;
+		printf("SIZE\t->\t%d\n", head->size);
 		while (i < head->size)
 		{
 			printf("%i\t%s\n", head->num, head->figure[i]);
@@ -43,12 +44,14 @@ int		main(int argc, char **argv)
 		return (0);
 	fd = open(argv[1], O_RDONLY);
 	head = figure_reader(fd);
-	close(fd);
+	close(fd); 
 	size = board_size(head);
 	printf("BOARD SIZE: %dx%d\n\n", size, size);
 	//board = get_board(size); // works
-	move_top(head);
+	move_top_all(head);
 	if (size > 4)
 		refresh(head, size);
-	print(head);
+	while (move_next(head) != 1);
+	fill_letters_all(head);
+	print_all(head);
 }

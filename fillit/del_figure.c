@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_board.c                                        :+:      :+:    :+:   */
+/*   del_figure.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nikgrape <nikgrape@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/10 01:06:44 by nikgrape          #+#    #+#             */
-/*   Updated: 2019/06/10 23:26:18 by vinograd         ###   ########.fr       */
+/*   Created: 2019/06/12 00:41:42 by nikgrape          #+#    #+#             */
+/*   Updated: 2019/06/12 00:43:19 by nikgrape         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	**get_board(int size)
+void			del_figure(t_figure *list)
 {
-	int		i;
-	char	**board;
+	int i;
 
 	i = 0;
-	if (!(board = (char**)malloc(sizeof(char*) * size)))
-		return (NULL);
-	while (i < size)
-		if (!(board[i++] = ft_strnew(size)))
-			return (NULL);
-	return (board);
+	while (i < list->size)
+		ft_strdel(&(list->figure[i++]));
+	free(list->figure);
+	list->figure = NULL;
+	//list->next = NULL;
+	free(list);
+	list = NULL;
 }

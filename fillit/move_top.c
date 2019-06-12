@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_top.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nikgrape <nikgrape@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/09 22:41:40 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/11 19:01:05 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/12 12:33:14 by nikgrape         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void		move_left(char **f, int size)
 		flag = 0;
 		while (j < size)
 		{
-			if (f[j][i] == '#')
+			if (f[j][i] != '.')
 			{
 				ft_swap(&f[j][i], &f[j][top]);
 				flag++;
@@ -55,7 +55,7 @@ static void	move_up(char **f, int size)
 		flag = 0;
 		while (i < size)
 		{
-			if (f[j][i] == '#')
+			if (f[j][i] != '.')
 			{
 				ft_swap(&f[j][i], &f[top][i]);
 				flag++;
@@ -68,12 +68,17 @@ static void	move_up(char **f, int size)
 	}
 }
 
-void		move_top(t_figure *start)
+void		move_top(t_figure *list)
+{
+	move_up(list->figure, list->size);
+	move_left(list->figure, list->size);
+}
+
+void		move_top_all(t_figure *start)
 {
 	while (start != NULL)
 	{
-		move_up(start->figure, 4);
-		move_left(start->figure, 4);
+		move_top(start);
 		start = start->next;
 	}
 }
