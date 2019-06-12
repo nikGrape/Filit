@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 21:36:54 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/11 19:34:46 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/11 19:39:26 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	print(t_figure *head)
 		i = 0;
 		while (i < head->size)
 		{
-			printf("%c\t%s\n", head->name, head->figure[i]);
+			printf("%i\t%s\n", head->num, head->figure[i]);
 			i++;
 		}
 		printf("\n");
