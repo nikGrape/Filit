@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 21:36:54 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/11 19:39:26 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/11 19:49:00 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,9 @@ int		main(int argc, char **argv)
 	close(fd);
 	size = board_size(head);
 	printf("BOARD SIZE: %dx%d\n\n", size, size);
-	//print(head, 4);
 	//board = get_board(size); // works
 	move_top(head);
-	// if (size > 4)
-	// 	refresh(head, size);
+	if (size > 4)
+		refresh(head, size);
 	print(head);
 }

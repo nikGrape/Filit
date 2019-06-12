@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 19:40:14 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/11 19:32:22 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/11 20:03:58 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void			del_figure(t_figure *list)
 		ft_strdel(&(list->figure[i++]));
 	free(list->figure);
 	list->figure = NULL;
-	list->next = NULL;
+	//list->next = NULL;
 	free(list);
 	list = NULL;
 }
@@ -57,7 +57,9 @@ static t_figure	*refresh_figure(t_figure *list, int size)
 
 	i = 0;
 	new = new_figure(size);
-	new->next = NULL;
+	new->next = list->next;
+	new->size = size;
+	new->num = list->num;
 	while (i < 4)
 	{
 		ft_linecpy(new->figure[i], list->figure[i], size);
@@ -71,8 +73,8 @@ static t_figure	*refresh_figure(t_figure *list, int size)
 
 void			refresh(t_figure *list, int size)
 {
-	t_figure *tmp;
-	int i;
+	t_figure	*tmp;
+	int			i;
 
 	i = 0;
 	while (list != NULL)
@@ -81,6 +83,7 @@ void			refresh(t_figure *list, int size)
 		list = refresh_figure(list, size);
 		del_figure(tmp);
 		list = list->next;
-		printf("%d\n", i++);
+		printf("%d ", i++);
 	}
+	printf("\n");
 }
