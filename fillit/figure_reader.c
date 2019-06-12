@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 15:54:35 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/11 19:28:58 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/11 19:37:35 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,17 @@ t_figure	*figure_reader(int fd)
 	t_figure	*tmp;
 	char		*line;
 	int			index;
-	char		name;
+	int			num;
 
-	name = 'A';
 	start = new_figure(4);
 	tmp = start;
 	index = 0;
+	num = 0;
 	while ((get_next_line(fd, &line)))
 	{
 		if (index == 4)
 		{
-			tmp->name = name++;
+			tmp->num = num++;
 			tmp->next = new_figure(4);
 			tmp = tmp->next;
 			index = 0;
@@ -56,6 +56,6 @@ t_figure	*figure_reader(int fd)
 		ft_strcpy(tmp->figure[index++], line);
 		ft_strdel(&line);
 	}
-	tmp->name = name;
+	tmp->num = num;
 	return (start);
 }

@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 15:23:09 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/11 19:31:39 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/11 19:36:18 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 typedef struct	s_figure
 {
 	int				size;
-	char			name;
+	int				num;
 	char			**figure;
 	struct s_figure *next;
 }				t_figure;

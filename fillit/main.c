@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 21:36:54 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/11 19:33:18 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/11 19:34:46 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,5 @@ int		main(int argc, char **argv)
 	move_top(head);
 	// if (size > 4)
 	// 	refresh(head, size);
-	//size = 4;
-	print(head, 4);
+	print(head);
 }
