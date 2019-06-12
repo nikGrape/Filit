@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 19:40:14 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/11 14:59:26 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/11 18:54:24 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,16 @@ static char		*ft_linecpy(char *dst, char *src, int size)
 	return (dst);
 }
 
-static void		del_figure(t_figure *list)
+void			del_figure(t_figure *list, int size)
 {
 	int i;
 
 	i = 0;
-	while (i < 4)
+	while (i < size)
 		ft_strdel(&(list->figure[i++]));
 	free(list->figure);
 	list->figure = NULL;
-	list->next = NULL;
+	//list->next = NULL;
 	free(list);
 	list = NULL;
 }
@@ -57,7 +57,7 @@ static t_figure	*refresh_figure(t_figure *list, int size)
 
 	i = 0;
 	new = new_figure(size);
-	new->next = list->next;
+	new->next = NULL;
 	while (i < 4)
 	{
 		ft_linecpy(new->figure[i], list->figure[i], size);
@@ -65,15 +65,22 @@ static t_figure	*refresh_figure(t_figure *list, int size)
 	}
 	while (i < size)
 		dot_filler(new->figure[i++], size);
-	del_figure(list);
+	//del_figure(list, 4);
 	return (new);
 }
 
-void		refresh(t_figure *list, int size)
+void			refresh(t_figure *list, int size)
 {
+	t_figure *tmp;
+	int i;
+
+	i = 0;
 	while (list != NULL)
 	{
+		tmp = list;
 		list = refresh_figure(list, size);
+		del_figure(tmp, 4);
 		list = list->next;
+		printf("%d\n", i++);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 21:36:54 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/11 15:07:29 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/11 18:52:46 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 
 void	print(t_figure *head, int size)
 {
-	int i;
-	char ch;
+	int		i;
+	int		j;
+	char	ch;
 
 	ch = 'A';
-	while (head != NULL)
+	j = 0;
+	while (head)
 	{
 		i = 0;
 		while (i < size)
@@ -47,8 +49,11 @@ int		main(int argc, char **argv)
 	close(fd);
 	size = board_size(head);
 	printf("BOARD SIZE: %dx%d\n\n", size, size);
+	//print(head, 4);
 	//board = get_board(size); // works
-	move_top(head, size);
-	refresh(head, size);
+	move_top(head);
+	if (size > 4)
+		refresh(head, size);
+	//size = 4;
 	print(head, size);
 }
