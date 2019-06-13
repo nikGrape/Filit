@@ -28,12 +28,20 @@
 ....
 ####
 
-##..
-##..
+####
+....
 ....
 ....
 
 ....
-..##
-...#
-...#
+.#..
+.#..
+##..
+
+        .vscode/
+        fillit/Makefile
+        fillit/a.out
+        fillit/fillit.c
+        fillit/test1.fillit
+        fillit/test3.fillit
+        fillit/tmplap.c

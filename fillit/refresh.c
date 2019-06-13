@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   refresh.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nikgrape <nikgrape@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Nik <Nik@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 19:40:14 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/12 12:28:36 by nikgrape         ###   ########.fr       */
+/*   Updated: 2019/06/12 19:00:47 by Nik              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,12 @@ static void	refresh_figure(t_figure *list, int size)
 
 void		refresh(t_figure *list, int size)
 {
-	while (list)
+	if (size > 4)
 	{
-		refresh_figure(list, size);
-		list = list->next;
+		while (list)
+		{
+			refresh_figure(list, size);
+			list = list->next;
+		}
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nikgrape <nikgrape@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Nik <Nik@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 15:23:09 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/12 12:35:16 by nikgrape         ###   ########.fr       */
+/*   Updated: 2019/06/12 21:08:44 by Nik              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@ void			del_figure(t_figure *list);
 int				move_next(t_figure *list);
 void			fill_letters(t_figure *list);
 void			fill_letters_all(t_figure *start);
+int				is_overlap_tmp(t_figure *head, t_figure *fig);
+void			fillit(t_figure *head);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   figure_reader.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Nik <Nik@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 15:54:35 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/11 19:37:35 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/13 00:50:16 by Nik              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,24 @@ t_figure	*figure_reader(int fd)
 	num = 0;
 	while ((get_next_line(fd, &line)))
 	{
+		
 		if (index == 4)
 		{
 			tmp->num = num++;
 			tmp->next = new_figure(4);
 			tmp = tmp->next;
 			index = 0;
+			if (ft_strlen(line) != 0)
+			{
+				ft_putstr("error\n");
+				exit(1) ;
+			}
 			continue ;
+		}
+		if (ft_strlen(line) != 4)
+		{
+			ft_putstr("error\n");
+			exit(1) ;
 		}
 		ft_strcpy(tmp->figure[index++], line);
 		ft_strdel(&line);
