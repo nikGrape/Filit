@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_top.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nikgrape <nikgrape@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/09 22:41:40 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/12 12:33:14 by nikgrape         ###   ########.fr       */
+/*   Updated: 2019/06/13 18:40:21 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void	move_up(char **f, int size)
 	}
 }
 
-void		move_top(t_figure *list)
+static void	move_top(t_figure *list)
 {
 	move_up(list->figure, list->size);
 	move_left(list->figure, list->size);

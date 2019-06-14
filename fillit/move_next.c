@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   move_next.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nikgrape <nikgrape@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 14:40:33 by dbubnov           #+#    #+#             */
-/*   Updated: 2019/06/12 11:34:29 by nikgrape         ###   ########.fr       */
+/*   Updated: 2019/06/13 21:54:21 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static int	check_boarder_right(char **f, int size_field)
+int			check_boarder_right(char **f, int size_field)
 {
 	unsigned int	i;
 	unsigned int	j;
@@ -28,7 +28,7 @@ static int	check_boarder_right(char **f, int size_field)
 	return (0);
 }
 
-static int	check_boarder_down(char **f, int size_field)
+int			check_boarder_down(char **f, int size_field)
 {
 	unsigned int	i;
 	unsigned int	j;
@@ -58,11 +58,7 @@ static void	move_right(char **f, int size_field)
 	while (i > 0 || j > 0)
 	{
 		if (triger == 1)
-		{
-			i = 0;
-			j = 0;
 			break ;
-		}
 		if (f[j][i] != '.' && i != size_field)
 			ft_swap(&f[j][i], &f[j][i + 1]);
 		if (i == 0)
@@ -91,11 +87,7 @@ static void	move_down(char **f, int size_field)
 	while (i > 0 || j > 0)
 	{
 		if (triger == 1)
-		{
-			i = 0;
-			j = 0;
 			break ;
-		}
 		if (f[j][i] != '.' && j != size_field)
 			ft_swap(&f[j][i], &f[j + 1][i]);
 		if (i == 0)

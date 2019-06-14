@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   refresh.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Nik <Nik@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 19:40:14 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/12 19:00:47 by Nik              ###   ########.fr       */
+/*   Updated: 2019/06/13 22:51:52 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,20 @@ static char		*ft_linecpy(char *dst, char *src, int size)
 	return (dst);
 }
 
-void		figure_clear(t_figure *list)
+static void		figure_clear(t_figure *list)
 {
 	int i;
 
 	i = 0;
 	while (i < list->size)
 	{
-		ft_strdel(&(list->figure[i++]));
+		ft_strdel(&(list->figure[i]));
+		i++;
 	}
-	ft_strdel(list->figure);
+	free(list->figure);
 }
 
-static void	refresh_figure(t_figure *list, int size)
+static void		refresh_figure(t_figure *list, int size)
 {
 	int		i;
 	char	**new;
@@ -56,10 +57,7 @@ static void	refresh_figure(t_figure *list, int size)
 	new = (char**)malloc(sizeof(char*) * size);
 	i = 0;
 	while (i < size)
-	{
-		new[i] = ft_strnew(size);
-		i++;
-	}
+		new[i++] = ft_strnew(size);
 	i = 0;
 	while (i < 4)
 	{
@@ -73,14 +71,15 @@ static void	refresh_figure(t_figure *list, int size)
 	list->figure = new;
 }
 
-void		refresh(t_figure *list, int size)
+void			refresh(t_figure *head, int size)
 {
+	move_top_all(head);
 	if (size > 4)
 	{
-		while (list)
+		while (head)
 		{
-			refresh_figure(list, size);
-			list = list->next;
+			refresh_figure(head, size);
+			head = head->next;
 		}
 	}
 }

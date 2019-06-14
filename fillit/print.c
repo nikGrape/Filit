@@ -1,47 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_overlap.c                                       :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/12 18:51:13 by Nik               #+#    #+#             */
-/*   Updated: 2019/06/13 18:38:16 by vinograd         ###   ########.fr       */
+/*   Created: 2019/06/13 18:49:01 by vinograd          #+#    #+#             */
+/*   Updated: 2019/06/13 22:33:46 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static int	figure_compare(char **head, char **body, int size)
+static void	fill_letters(t_figure *list)
 {
 	int i;
 	int j;
 
-	j = 0;
-	while (j < size)
+	i = 0;
+	while (i < list->size)
 	{
-		i = 0;
-		while (i < size)
+		j = 0;
+		while (j < list->size)
 		{
-			if (head[j][i] != '.' && body[j][i] != '.')
-				return (1);
-			i++;
+			if (list->figure[i][j] != '.')
+				list->figure[i][j] = list->num + 'A';
+			j++;
 		}
-		j++;
+		i++;
 	}
-	return (0);
 }
 
-int			is_overlap(t_figure *head, t_figure *body)
+void		fill_figure_with_letters(t_figure *start)
 {
-	int ret;
-
-	ret = 0;
-	while (head->num < body->num)
+	while (start)
 	{
-		if ((ret = figure_compare(head->figure, body->figure, head->size)) == 1)
-			break ;
-		head = head->next;
+		fill_letters(start);
+		start = start->next;
 	}
-	return (ret);
+}
+
+void		print(t_figure *head)
+{
+	int i;
+
+	i = 0;
+	while (i < head->size)
+	{
+		ft_putstr(head->figure[i]);
+		ft_putstr("\n");
+		i++;
+	}
 }

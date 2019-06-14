@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Nik <Nik@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/12 19:53:38 by Nik               #+#    #+#             */
-/*   Updated: 2019/06/12 21:08:35 by Nik              ###   ########.fr       */
+/*   Updated: 2019/06/13 19:49:04 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,36 @@ static int	figfill(char **head, char **fig, int size)
 void		fillit(t_figure *head)
 {
 	t_figure *tmp;
-	
+
 	tmp = head;
 	while (tmp)
 	{
 		figfill(head->figure, tmp->figure, head->size);
 		tmp = tmp->next;
+	}
+}
+
+void		back_track(t_figure *head)
+{
+	t_figure	*tmp;
+	int			flag;
+
+	tmp = head;
+	while (tmp)
+	{
+		flag = 1;
+		while (is_overlap(head, tmp))
+			if (move_next(tmp))
+			{
+				move_top_all(tmp);
+				tmp = go_back(head, tmp->num);
+				while (move_next(tmp))
+					tmp = go_back(head, tmp->num);
+				//if (check_borders(head))
+				//	return (1);
+				flag = 0;
+			}
+		if (flag)
+			tmp = tmp->next;
 	}
 }

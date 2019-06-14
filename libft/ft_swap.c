@@ -6,17 +6,15 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 15:24:50 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/03 15:54:26 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/13 18:46:16 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-
-void    ft_swap(char *c1, char *c2)
+void	ft_swap(char *c1, char *c2)
 {
-    char ch;
+	char ch;
 
-    ch = *c1;
-    *c1 = *c2;
-    *c2 = ch;
+	ch = *c1;
+	*c1 = *c2;
+	*c2 = ch;
 }
