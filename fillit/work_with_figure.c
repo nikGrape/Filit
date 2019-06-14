@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/12 00:41:42 by nikgrape          #+#    #+#             */
-/*   Updated: 2019/06/13 21:01:44 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/13 23:05:46 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ static void		del_figure(t_figure *list)
 	list->size = 0;
 	list->num = 0;
 	list->next = NULL;
-	//free(list);
-	//list = NULL;
 }
 
 void			dell_all_figures(t_figure *head)

@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/12 19:53:38 by Nik               #+#    #+#             */
-/*   Updated: 2019/06/13 19:49:04 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/13 23:22:04 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ void		back_track(t_figure *head)
 				tmp = go_back(head, tmp->num);
 				while (move_next(tmp))
 					tmp = go_back(head, tmp->num);
-				//if (check_borders(head))
-				//	return (1);
+				if (check_borders(head))
+					return (1);
 				flag = 0;
 			}
 		if (flag)

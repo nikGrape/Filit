@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/13 22:54:17 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/13 22:56:14 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/13 23:21:37 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int		main(int argc, char **argv)
 		ft_error(-1);
 	head = figure_reader(fd);
 	close(fd);
-	//move_top_all(head);
 	refresh(head, get_board_size(head));
 	back_track(head);
 	fill_figure_with_letters(head);
