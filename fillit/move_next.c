@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   move_next.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Nik <Nik@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 14:40:33 by dbubnov           #+#    #+#             */
-/*   Updated: 2019/06/13 21:54:21 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/17 10:51:35 by Nik              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int			check_boarder_right(char **f, int size_field)
+static int	check_boarder_right(char **f, int size_field)
 {
 	unsigned int	i;
 	unsigned int	j;
@@ -28,7 +28,7 @@ int			check_boarder_right(char **f, int size_field)
 	return (0);
 }
 
-int			check_boarder_down(char **f, int size_field)
+static int	check_boarder_down(char **f, int size_field)
 {
 	unsigned int	i;
 	unsigned int	j;
