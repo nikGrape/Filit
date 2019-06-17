@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Nik <Nik@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/13 22:42:43 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/13 23:10:54 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/14 22:27:33 by Nik              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define FILLIT_H
 
 # include "../libft/libft.h"
+# include <stdio.h>
 
 typedef struct	s_figure
 {
@@ -39,5 +40,8 @@ void			back_track(t_figure *head);
 int				get_board_size(t_figure *start);
 int				is_overlap(t_figure *head, t_figure *body);
 int				move_next(t_figure *list);
+
+int			check_boarder_right(char **f, int size_field);
+int			check_boarder_down(char **f, int size_field);
 
 #endif

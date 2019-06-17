@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Nik <Nik@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/29 21:36:54 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/13 19:37:57 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/14 22:34:23 by Nik              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,12 @@ int		main(int argc, char **argv)
 		HHHDDG
 		.HDD.G
 
+ABBBB.
+AHHHDD
+A.HDD.
+AGGCCC
+EEGFFC
+EEG.FF
 
 0       ABBBB.
 0       AHHHDD
