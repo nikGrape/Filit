@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/13 22:54:17 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/17 18:04:49 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/18 15:13:08 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int		main(int argc, char **argv)
 	close(fd);
 	check_oll_figures(head);
 	refresh(head, get_board_size(head));
-	back_track(head);
 	fill_figure_with_letters(head);
+	back_track(head);
 	fillit(head);
 	print(head);
 	dell_all_figures(head);
