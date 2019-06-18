@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_errors.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbubnov <dbubnov@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/13 19:39:51 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/17 17:29:05 by dbubnov          ###   ########.fr       */
+/*   Updated: 2019/06/17 18:47:24 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_error(int err)
+void		ft_error(int err)
 {
 	if (err == 0)
 		ft_putstr("usage: fillit source_file\n");
@@ -20,54 +20,83 @@ void	ft_error(int err)
 		ft_putstr("file not found!\n");
 	else if (err == 1)
 		ft_putstr("error\n");
+	else if (err == 2)
+		ft_putstr("too many tetriminos\n");
 	exit(1);
 }
 
-void	figure_checker(char f[4][5])
+static int	check(char **f, int j, int i)
+{
+	int touch;
+
+	touch = 0;
+	if ((i + 1) < 4)
+		if (f[j][i + 1] == '#')
+			touch++;
+	if ((j + 1) < 4)
+		if (f[j + 1][i] == '#')
+			touch++;
+	if ((j - 1) >= 0)
+		if (f[j - 1][i] == '#')
+			touch++;
+	if ((i - 1) >= 0)
+		if (f[j][i - 1] == '#')
+			touch++;
+	return (touch);
+}
+
+static void	figure_checker(char **f)
 {
 	int i;
 	int j;
-	int triger;
+	int touch;
 
-	i = 0;
 	j = 0;
 	while (j < 4)
 	{
-		while (i < 3)
+		i = 0;
+		while (i < 4)
 		{
-			triger = 0;
-			if ((i + 1) < 4)
-				if (f[j][i] == f[j][i + 1])
-					triger++;
-			if ((j + 1) < 4)
-				if (f[j][i] == f[j + 1][i])
-					triger++;
-			if ((j - 1) > 0)
-				if (f[j][i] != f[j - 1][i])
-					triger++;
-			if ((i - 1) > 0)
-				if (f[j][i] != f[j][i - 1])
-					triger++;
-			if (triger == 0)
-				ft_error(1);
+			if (f[j][i] == '#')
+				if ((touch = check(f, j, i)) == 0)
+					ft_error(1);
 			i++;
 		}
 		j++;
 	}
 }
 
-int		main(void)
+static void	figure_valid(char **f)
 {
-	int i;
+	int		i;
+	int		j;
+	int		count;
 
-	i = 0;
-	char arr[4][5] =   {"##..",
-						"....",
-						".##.",
-						"...."};
+	j = 0;
+	count = 0;
+	while (j < 4)
+	{
+		i = 0;
+		while (i < 4)
+		{
+			if (f[j][i] == '#')
+				count++;
+			if (f[j][i] != '.' && f[j][i] != '#')
+				ft_error(1);
+			i++;
+		}
+		j++;
+	}
+	if (count != 4)
+		ft_error(1);
+}
 
-	figure_checker(arr);
-	// while (i < 4)
-	// 	printf("%s\n", arr[i++]);
-	return (0);
+void		check_oll_figures(t_figure *head)
+{
+	while (head)
+	{
+		figure_valid(head->figure);
+		figure_checker(head->figure);
+		head = head->next;
+	}
 }

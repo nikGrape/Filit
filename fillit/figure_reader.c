@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 15:54:35 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/13 21:11:28 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/17 17:02:16 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,24 @@ static t_figure	*new_figure(int size)
 	return (new);
 }
 
+static int		check_line(t_figure *tmp, char **line, int num, int key)
+{
+	int len;
+
+	len = ft_strlen(*line);
+	if (len != key)
+		ft_error(1);
+	if (key == 0)
+	{
+		if (num > 24)
+			ft_error(2);
+		tmp->num = num;
+		tmp->next = new_figure(4);
+	}
+	ft_strdel(line);
+	return (0);
+}
+
 t_figure		*figure_reader(int fd)
 {
 	t_figure	*start;
@@ -47,19 +65,12 @@ t_figure		*figure_reader(int fd)
 	{
 		if (index == 4)
 		{
-			tmp->num = num++;
-			tmp->next = new_figure(4);
+			index = check_line(tmp, &line, num++, 0);
 			tmp = tmp->next;
-			index = 0;
-			free(line);
-			if (ft_strlen(line) != 0)
-				ft_error(1);
 			continue ;
 		}
-		if (ft_strlen(line) != 4)
-			ft_error(1);
 		ft_strcpy(tmp->figure[index++], line);
-		ft_strdel(&line);
+		check_line(tmp, &line, num, 4);
 	}
 	free(line);
 	tmp->num = num;

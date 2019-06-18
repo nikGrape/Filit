@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Nik <Nik@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/12 19:53:38 by Nik               #+#    #+#             */
-/*   Updated: 2019/06/17 10:52:23 by Nik              ###   ########.fr       */
+/*   Updated: 2019/06/17 14:26:50 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,10 @@ void		fillit(t_figure *head)
 	}
 }
 
-// int			check_borders(t_figure *fig)
-// {
-// 	if (check_boarder_down(fig->figure, fig->size - 1) &&\
-// 			check_boarder_right(fig->figure, fig->size - 1))
-// 		return (1);
-// 	return (0);
-// }
-
 void		back_track(t_figure *head)
 {
 	t_figure	*tmp;
-	
+
 	tmp = head;
 	while (tmp)
 	{
@@ -65,7 +57,7 @@ void		back_track(t_figure *head)
 				move_top_all(tmp);
 				tmp = go_back(head, tmp->num);
 				while (move_next(tmp))
-				{						
+				{
 					if (tmp == head)
 					{
 						refresh(head, head->size + 1);
