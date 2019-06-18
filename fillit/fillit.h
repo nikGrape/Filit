@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Nik <Nik@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: dbubnov <dbubnov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/13 22:42:43 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/17 10:50:58 by Nik              ###   ########.fr       */
+/*   Updated: 2019/06/17 16:36:51 by dbubnov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ void			back_track(t_figure *head);
 int				get_board_size(t_figure *start);
 int				is_overlap(t_figure *head, t_figure *body);
 int				move_next(t_figure *list);
+void			figure_checker(char f[4][5]);
 
 #endif
