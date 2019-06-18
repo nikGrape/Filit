@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/13 22:42:43 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/17 20:34:13 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/18 14:01:04 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_figure		*figure_reader(int fd);
 t_figure		*go_back(t_figure *head, int num);
 void			check_oll_figures(t_figure *head);
 void			move_top_all(t_figure *start);
+void			move_top(t_figure *list);
 void			move_left(char **f, int size);
 void			refresh(t_figure *start, int size);
 void			dell_all_figures(t_figure *head);

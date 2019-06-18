@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/09 22:41:40 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/17 20:31:02 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/18 14:00:48 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void	move_up(char **f, int size)
 	}
 }
 
-static void	move_top(t_figure *list)
+void		move_top(t_figure *list)
 {
 	move_up(list->figure, list->size);
 	move_left(list->figure, list->size);

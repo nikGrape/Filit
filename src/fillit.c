@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/12 19:53:38 by Nik               #+#    #+#             */
-/*   Updated: 2019/06/17 14:26:50 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/18 14:01:14 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void		back_track(t_figure *head)
 		while (is_overlap(head, tmp))
 			if (move_next(tmp))
 			{
-				move_top_all(tmp);
+				move_top(tmp);
 				tmp = go_back(head, tmp->num);
 				while (move_next(tmp))
 				{

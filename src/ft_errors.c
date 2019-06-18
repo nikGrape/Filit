@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/13 19:39:51 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/17 18:47:24 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/18 13:11:35 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,20 @@ static void	figure_checker(char **f)
 	int touch;
 
 	j = 0;
+	touch = 0;
 	while (j < 4)
 	{
 		i = 0;
 		while (i < 4)
 		{
 			if (f[j][i] == '#')
-				if ((touch = check(f, j, i)) == 0)
-					ft_error(1);
+				touch += check(f, j, i);
 			i++;
 		}
 		j++;
 	}
+	if (touch != 8 && touch != 6)
+		ft_error(1);
 }
 
 static void	figure_valid(char **f)
