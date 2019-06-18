@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 21:56:03 by vinograd          #+#    #+#             */
-/*   Updated: 2019/05/29 21:58:58 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/17 20:45:38 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static int		get_line(const int fd, char **line, char *rest)
 	return ((ft_strlen(*line) || ft_strlen(rest) || rd) ? 1 : 0);
 }
 
-int			get_next_line(const int fd, char **line)
+int				get_next_line(const int fd, char **line)
 {
 	static t_arr	*list;
 	t_arr			*tmp;

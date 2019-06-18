@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_next.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Nik <Nik@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 14:40:33 by dbubnov           #+#    #+#             */
-/*   Updated: 2019/06/17 10:51:35 by Nik              ###   ########.fr       */
+/*   Updated: 2019/06/17 20:30:04 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	check_boarder_right(char **f, int size_field)
 {
-	unsigned int	i;
-	unsigned int	j;
+	int	i;
+	int	j;
 
 	i = size_field;
 	j = 0;
@@ -30,8 +30,8 @@ static int	check_boarder_right(char **f, int size_field)
 
 static int	check_boarder_down(char **f, int size_field)
 {
-	unsigned int	i;
-	unsigned int	j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = size_field;
@@ -46,9 +46,9 @@ static int	check_boarder_down(char **f, int size_field)
 
 static void	move_right(char **f, int size_field)
 {
-	unsigned int	i;
-	unsigned int	j;
-	int				triger;
+	int	i;
+	int	j;
+	int	triger;
 
 	i = size_field;
 	j = size_field;
@@ -75,9 +75,9 @@ static void	move_right(char **f, int size_field)
 
 static void	move_down(char **f, int size_field)
 {
-	unsigned int	i;
-	unsigned int	j;
-	int				triger;
+	int	i;
+	int	j;
+	int	triger;
 
 	i = size_field;
 	j = size_field;

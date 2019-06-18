@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 18:26:04 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/13 18:44:16 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/17 20:47:06 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
-typedef struct		s_arr
+typedef struct	s_arr
 {
 	int				fd;
 	char			*rest;
 	struct s_arr	*next;
-}					t_arr;
+}				t_arr;
 
 int				ft_atoi(const char *s);
 void			ft_bzero(void *s, size_t n);
@@ -109,6 +109,6 @@ void			ft_swap(char *c1, char *c2);
 /*
 	**get_next_line
 */
-int					get_next_line(const int fd, char **line);
+int				get_next_line(const int fd, char **line);
 
 #endif

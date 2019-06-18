@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/13 22:42:43 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/17 18:01:25 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/17 20:34:13 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FILLIT_H
 
 # include "../libft/libft.h"
-# include <stdio.h>
 
 typedef struct	s_figure
 {

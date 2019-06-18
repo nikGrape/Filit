@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/09 22:41:40 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/13 18:40:21 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/17 20:31:02 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void		move_left(char **f, int size)
 {
-	unsigned int i;
-	unsigned int j;
-	unsigned int top;
-	unsigned int flag;
+	int i;
+	int j;
+	int top;
+	int flag;
 
 	top = 0;
 	i = 0;
@@ -42,10 +42,10 @@ void		move_left(char **f, int size)
 
 static void	move_up(char **f, int size)
 {
-	unsigned int	i;
-	unsigned int	j;
-	int				top;
-	int				flag;
+	int	i;
+	int	j;
+	int	top;
+	int	flag;
 
 	top = 0;
 	j = 0;

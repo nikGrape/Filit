@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dbubnov <dbubnov@student.42.fr>            +#+  +:+       +#+         #
+#    By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/29 21:12:56 by vinograd          #+#    #+#              #
-#    Updated: 2019/06/17 20:26:31 by dbubnov          ###   ########.fr        #
+#    Updated: 2019/06/17 20:36:39 by vinograd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ all: $(NAME)
 
 $(NAME):
 	@make -C libft/ re
-	gcc $(FLAGS) src/$(SRCS) libft/libft.a -I$(INCLUDES)libft.h src/fillit.h
+	gcc -o $(NAME) $(FLAGS) src/$(SRCS) $(INCLUDES)libft.a
 
 clean:
 	@make -C libft/ clean
