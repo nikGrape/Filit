@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/12 00:41:42 by nikgrape          #+#    #+#             */
-/*   Updated: 2019/06/13 23:05:46 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/18 17:36:30 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int		ft_size(int size)
 {
 	int b_sz;
 
-	b_sz = 4;
+	b_sz = 3;
 	size *= 4;
 	while (size > (b_sz * b_sz))
 		b_sz++;

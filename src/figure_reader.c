@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 15:54:35 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/17 17:02:16 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/18 17:20:59 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ static int		check_line(t_figure *tmp, char **line, int num, int key)
 		if (num > 24)
 			ft_error(2);
 		tmp->num = num;
+		tmp->size = 4;
 		tmp->next = new_figure(4);
 	}
 	ft_strdel(line);

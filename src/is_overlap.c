@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/12 18:51:13 by Nik               #+#    #+#             */
-/*   Updated: 2019/06/13 18:38:16 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/18 17:39:34 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,26 @@ int			is_overlap(t_figure *head, t_figure *body)
 		head = head->next;
 	}
 	return (ret);
+}
+
+int			check_figure_size(t_figure *head)
+{
+	int j;
+	int i;
+
+	while (head)
+	{
+		j = 3;
+		i = 0;
+		while (i < 4)
+			if (head->figure[j][i++] == '#')
+				return (4);
+		j = 0;
+		i = 3;
+		while (j < 4)
+			if (head->figure[j++][i] == '#')
+				return (4);
+		head = head->next;
+	}
+	return (3);
 }

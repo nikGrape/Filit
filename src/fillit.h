@@ -6,7 +6,7 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/13 22:42:43 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/18 14:01:04 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/18 17:38:17 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void			fillit(t_figure *head);
 void			fill_figure_with_letters(t_figure *start);
 void			print(t_figure *head);
 void			back_track(t_figure *head);
+int				check_figure_size(t_figure *head);
 int				get_board_size(t_figure *start);
 int				is_overlap(t_figure *head, t_figure *body);
 int				move_next(t_figure *list);

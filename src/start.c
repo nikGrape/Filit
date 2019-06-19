@@ -6,20 +6,11 @@
 /*   By: vinograd <vinograd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/13 22:54:17 by vinograd          #+#    #+#             */
-/*   Updated: 2019/06/18 15:13:08 by vinograd         ###   ########.fr       */
+/*   Updated: 2019/06/18 17:33:44 by vinograd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-void	print_all(t_figure *head)
-{
-	while (head)
-	{
-		print(head);
-		head = head->next;
-	}
-}
 
 int		main(int argc, char **argv)
 {
